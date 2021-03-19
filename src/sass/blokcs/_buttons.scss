@@ -1,0 +1,22 @@
+.button {      
+    width: 153px;
+    height: 32px;
+    background: $main-color;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    &_main {
+        margin-top: 67px;
+        width: 303px;
+        height: 54px;
+        font-size: 16px; 
+             
+    }
+    &_form {
+        margin-top: 17px;
+    }
+
+
+}
