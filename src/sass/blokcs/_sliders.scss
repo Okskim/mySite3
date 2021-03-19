@@ -8,10 +8,16 @@
     &__prev {
         align-self: center;
         padding-right: 60px;
+        cursor: pointer;
     }
     &__next {
         align-self: center;
         padding-left: 60px;
+        cursor: pointer;
+    }
+    &__wrapper {
+        width: 947px;
+        height: 580px;
     }
     &__inner {
         display: flex;  

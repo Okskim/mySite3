@@ -1,3 +1,4 @@
+window.addEventListener('DOMContentLoaded',() => {
 //sliders
 
 const slides = document.querySelectorAll('.sliders__slide'),
@@ -10,8 +11,15 @@ const slides = document.querySelectorAll('.sliders__slide'),
       let slideIndex = 1;
       let offset = 0;
 
-      slideField.style.width = 100 * slides.length + `%`;
+      slideField.style.width = 100*slides.length + '%';
       slideWrapper.style.overflow = 'hidden';
+
+      slides.forEach(slide => {
+          slide.style.width = width;
+      });
+
+
+    });
 
 
 
