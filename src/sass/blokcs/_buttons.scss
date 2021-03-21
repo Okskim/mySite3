@@ -2,7 +2,7 @@
     width: 153px;
     height: 32px;
     background: $main-color;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     color: #ffffff;
     border-radius: 5px;
@@ -16,6 +16,11 @@
     }
     &_form {
         margin-top: 17px;
+    }
+    &_mini {
+        width: 135px;
+        height: 44px;
+        font-size: 14px;
     }
 
 
