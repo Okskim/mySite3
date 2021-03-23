@@ -6,8 +6,8 @@ const slides = document.querySelectorAll('.sliders__slide'),
       next = document.querySelector('.sliders__next'),
       slideWrapper = document.querySelector('.sliders__wrapper'),
       slideField = document.querySelector ('.sliders__inner'),
-      width = window.getComputedStyle(slideWrapper).width,
-      slider = document.querySelector('.sliders');
+      width = window.getComputedStyle(slideWrapper).width;
+      // slider = document.querySelector('.sliders');
 
       
       let offset = 0;
@@ -22,7 +22,7 @@ const slides = document.querySelectorAll('.sliders__slide'),
           slide.style.width = width;
       });
 
-    slider.style.position = 'relative';
+    slideWrapper.style.position = 'relative';
 
     const indicators = document.createElement('ol');
 
@@ -40,7 +40,7 @@ const slides = document.querySelectorAll('.sliders__slide'),
             list-style: none;
 
           `;
-    slider.append(indicators);
+    slideWrapper.append(indicators);
 
     for (let i=0; i < slides.length; i++) {
       const dot = document.createElement('li');
@@ -49,7 +49,7 @@ const slides = document.querySelectorAll('.sliders__slide'),
           box-sizing: content-box;
           flex: 0 1 auto;
           width: 30px;
-          height: 6px;
+          height: 5px;
           margin-right: 3px;
           margin-left: 3px;
           cursor: pointer;
