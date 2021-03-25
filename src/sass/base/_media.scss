@@ -22,7 +22,7 @@
         .button_main {
             margin-top: 67px;
             width: 280px;
-            height: 54px;
+            height: 50px;
             font-size: 16px; 
                  
         }          
@@ -114,7 +114,7 @@
         }
         &__wrapper {
             width: 500px;
-            height: 350px;
+            height: 340px;
             
         }
         &__slide {
@@ -286,7 +286,7 @@
         .button_main {
             margin-top: 60px;
             width: 200px;
-            height: 45px;
+            height: 40px;
             font-size: 12px;
         } 
     }
@@ -370,7 +370,7 @@
         }
         &__wrapper {
             width: 500px;
-            height: 350px;
+            height: 340px;
             
         }
         &__slide {
@@ -525,12 +525,12 @@
         .button_main {
             margin-top: 40px;
             width: 150px;
-            height: 35px;
+            height: 30px;
             font-size: 10px;
         } 
     }
     .advantages {
-        min-height: 250px;
+        min-height: 260px;
         padding: 40px 30px 10px 30px;
         &__title {            
             font-size: 18px;
@@ -578,8 +578,8 @@
            
     }
     .sliders {    
-        padding: 50px 80px 0px 80px; 
-        min-height: 380px;
+        padding: 50px 80px 20px 80px; 
+        min-height: 280px;
         &__blokc { 
                       
             width: 400px;
@@ -600,22 +600,19 @@
         }
         &__wrapper {
             width: 300px;
-            height: 250px;
+            height: 222px;
             
-        }
+            
+        }     
+
         &__slide {
-            margin-left: 50px;        
+            margin-left: 25px;        
             img {
                 width: 250px;
             }            
         } 
         
     }
-
-
-
-
-
     .catalog {       
         &__tabs {
             margin-top: 20px;           
@@ -655,6 +652,191 @@
     }
 }
 @media (max-width: 575px) {
+    .header{            
+        
+        &__logo {
+            width: 120px;
+           
+        }
+        &__official {
+           
+            font-size: 10px;
+            
+            span {               
+                font-size: 12px;                
+            }
+        }
+        &__phone  {           
+            font-size: 12px;          
+           
+        }
+        
+    
+        .button {      
+            width: 100px;
+            height: 28px;           
+            font-size: 9px;           
+        }   
+        
+    }
+    .promo {
+        min-height: 350px;
+        padding: 15px 15px 20px 15px;
+        &__wrapper {            
+            margin-top: 50px;
+        }
+        &__header {            
+            font-size: 22px;
+            line-height: 22px;     
+            
+        }
+        &__subheader {
+            margin-top: 5px;            
+            font-size: 12px;
+            line-height: 12px;      
+           
+        }
+        &__icons {
+            margin-top: 20px;         
+            width: 220px;                 
+        }
+        &__icon {                       
+            font-size: 10px;                          
+    
+            img {  
+                width: 20px;             
+                margin-bottom: 5px;            
+            }
+        }
+        &__link {          
+            font-size: 10px;           
+            margin-top: 6px;            
+        }
+        .button_main {
+            margin-top: 30px;            
+            height: 30px;
+            
+        } 
+    }
+
+    .advantages {       
+        min-height: 240px;
+        padding: 30px 20px 10px 20px;
+        &__title {            
+            font-size: 18px;
+            line-height: 15px;            
+            }
+        &__icons { 
+            flex-wrap: wrap;
+            justify-content: center;  
+           
+            margin-top: 20px;
+             
+        }    
+        &__icon {
+            text-align: center;        
+             
+            img {                
+                width: 50px;                
+            }          
+        }
+        &__subtitle {
+            margin-top: 9px;           
+            font-size: 14px;           
+            
+        }     
+       
+        &__descr {
+            width: 188px;                    
+            font-size: 12px;                      
+            margin-top: 5px;
+        }
+    } 
+
+    .consultation {
+        
+        height: 360px;
+        padding: 20px 10px 20px 40px;
+       
+        &__title {           
+            font-size: 14px;
+            line-height: 14px;        
+           
+        }
+        &__subtitle {
+            margin-top: 10px;            
+            font-size: 13px;
+            line-height: 13px; 
+           
+        }   
+        .button_form {                
+            margin-top: 8px;
+            width: 230px;
+            height: 35px;
+            font-size: 11px; 
+                     
+        }     
+    }
+
+    .sliders {    
+        padding: 40px 40px 20px 40px; 
+        min-height: 280px;
+        &__blokc {                       
+            width: 300px;            
+        }
+       
+        &__prev {        
+        
+            img {
+                width: 15px;
+            }
+        }
+        &__next {           
+            
+            img {
+                width: 15px;
+            }
+        }
+        &__wrapper {
+            width: 250px;
+            height: 200px;
+            
+            
+        }     
+
+        &__slide {
+            margin-left: 15px;        
+            img {
+                width: 220px;
+            }            
+        }        
+    }
+
+    .catalog { 
+        &__title {
+            font-size: 18px;
+            line-height: 18px;       
+            
+        }      
+        &__tabs {
+            margin-top: 23px;           
+        }
+        &__tab {
+            width: 110px;
+            height: 28px;            
+            font-size: 10px;           
+            line-height: 28px;           
+        }
+        &__content {
+            margin-top: 20px;           
+            justify-content: center;          
+        }
+        
+        
+    }
+
+
+
    
 
 }

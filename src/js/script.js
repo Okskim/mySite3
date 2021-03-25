@@ -6,8 +6,8 @@ const slides = document.querySelectorAll('.sliders__slide'),
       next = document.querySelector('.sliders__next'),
       slideWrapper = document.querySelector('.sliders__wrapper'),
       slideField = document.querySelector ('.sliders__inner'),
-      width = window.getComputedStyle(slideWrapper).width;
-      // slider = document.querySelector('.sliders');
+      width = window.getComputedStyle(slideWrapper).width;     
+      
 
       
       let offset = 0;
@@ -35,11 +35,12 @@ const slides = document.querySelectorAll('.sliders__slide'),
             z-index: 15;
             display: flex;
             justify-content: center;
-            margin-right: 15%;
-            margin-left: 15%;
-            list-style: none;
+            margin-right: 7%;
+            
+            list-style: none;           
+            `;        
 
-          `;
+
     slideWrapper.append(indicators);
 
     for (let i=0; i < slides.length; i++) {
@@ -49,7 +50,7 @@ const slides = document.querySelectorAll('.sliders__slide'),
           box-sizing: content-box;
           flex: 0 1 auto;
           width: 30px;
-          height: 5px;
+          height: 3px;
           margin-right: 3px;
           margin-left: 3px;
           cursor: pointer;
@@ -124,12 +125,18 @@ const slides = document.querySelectorAll('.sliders__slide'),
       });
     });
 
+   
+
 
       //tabs
 
       const tabs = document.querySelectorAll('.catalog__tab'),
             tabsContent = document.querySelectorAll('.catalog__content'),
-            tabsParent = document.querySelector('.catalog__tabs');
+            tabsParent = document.querySelector('.catalog__tabs'),
+            catalogItem = document.querySelectorAll('.catalog-item__content'),
+            catalogList = document.querySelectorAll('.catalog-item__list'),
+            linkItem = document.querySelectorAll('.catalog-item__link'),
+            linkList = document.querySelectorAll('.catalog-item__back');
 
 
             function hideTabContent () {
@@ -162,13 +169,36 @@ const slides = document.querySelectorAll('.sliders__slide'),
                   }
                 });
               }
-
             });
 
-     
+            function toggleSlide(item) {
+              item.forEach ((items,i) => {
+                items.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   catalogItem[i].classList.toggle("catalog-item__content_active");
+                   catalogList[i].classList.toggle("catalog-item__list_active");
 
+                });
+              });
+            }
+
+
+              toggleSlide(linkItem);
+              toggleSlide(linkList);  
+              
+             
 
     });
 
+//  const x = Window.matchMedia("(max-width: 767px)");
+//               function My() {
+                       
+//                 if (x.matches) {
+//                 indicators.style.cssText =`
+//                   margin-left: 0;
+//                 `;
+//                 }
+//                }    
+//                x.addEventListener(My);  
 
 
