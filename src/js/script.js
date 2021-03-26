@@ -35,8 +35,7 @@ const slides = document.querySelectorAll('.sliders__slide'),
             z-index: 15;
             display: flex;
             justify-content: center;
-            margin-right: 7%;
-            
+            margin-right: 7%;            
             list-style: none;           
             `;        
 
