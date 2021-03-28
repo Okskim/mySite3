@@ -187,17 +187,145 @@ const slides = document.querySelectorAll('.sliders__slide'),
               
              
 
-    });
+   
 
-//  const x = Window.matchMedia("(max-width: 767px)");
-//               function My() {
-                       
-//                 if (x.matches) {
-//                 indicators.style.cssText =`
-//                   margin-left: 0;
-//                 `;
-//                 }
-//                }    
-//                x.addEventListener(My);  
+//modals
+
+const consultation = document.querySelector('#consultation'),
+      order = document.querySelector('#order'),      
+      button = document.querySelectorAll('.btn'),
+      btnOrder = document.querySelectorAll('.button_mini'),
+      descr = document.querySelectorAll('.catalog-item__subtitle'),
+      // descrOrderModal = document.querySelectorAll('.modal_descr_order'),
+      overlay = document.querySelector('.overlay');
+  
+
+      function OpenModal(modal) {
+        overlay.style.display = 'block';
+        modal.style.display = 'block';       
+
+      }
+
+      function CloseModal(modal) {
+        overlay.style.display = 'none';
+        modal.style.display = 'none';
+      }
+
+      function CloseEsc(modal) {
+        document.body.addEventListener('keydown', (e) => {
+          if(e.code === "Escape") {
+            CloseModal(modal);
+          }
+        });
+      }
 
 
+
+      function Close(modal) {       
+          modal.addEventListener('click', (e) =>{
+            const target = e.target;
+            if (target === modal || target.matches('.modal_close')) {
+              CloseModal(modal);
+            }       
+           
+          }); 
+           CloseEsc(modal);      
+      }
+
+      button.forEach(btn => {
+        btn.addEventListener('click', (e) => {         
+            OpenModal(consultation);     
+                
+        });       
+
+      });
+      console.log(descr);
+      Close(consultation);
+
+      function OrderClick(modal) {
+         
+        btnOrder.forEach((btn,i) => {
+
+          btn.addEventListener('click', (e) => {
+             
+            OpenModal(modal);
+         
+            // descrOrderModal[i].innerHTML = descr[i].innerHTML;
+            // console.log(descr[i]);
+          }); 
+         
+        });
+      }
+      OrderClick(order);
+      Close(order);
+
+      //forms
+
+      const forms = document.querySelectorAll('form'),
+            thanksModal = document.querySelector('#thanks');
+
+      const message = {
+        success: "Спасибо! Мы скоро с вами свяжемся",
+        failure: "Что-то пошло не так..."
+      };
+
+      forms.forEach(item => {
+          postData(item);
+      });
+
+      function postData(form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const formData = new FormData(form);
+
+          const json = JSON.stringify(Object.fromEntries(formData.entries()));
+                
+          
+          const posts = async (url, data) => {
+            const res = await fetch(url, {
+                method:"POST",
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body:data
+            });
+            return await res.json();        
+        };
+
+          posts('mailer/smart.php', json)
+          .then (data => {
+            console.log(data);
+            messageModal(message.success);
+          }).catch(() => {            
+            messageModal(message.failure);
+
+          }).finally(() => {
+            form.reset();
+          });
+        });
+      }
+
+      function messageModal (message) {
+        CloseModal(consultation);
+        CloseModal(order);
+
+        OpenModal(thanksModal);
+
+        thanksModal.innerHTML =`
+        <div class="modal_close">&times;</div>
+        <div class="modal_subtitle"> </div>
+        <div class="modal_descr">${message}</div>    
+        `;
+
+        Close(thanksModal);
+        
+        setTimeout(() => {
+          CloseModal(thanks);
+
+        },2000);
+      }
+      
+      
+
+});
