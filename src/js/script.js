@@ -196,7 +196,7 @@ const consultation = document.querySelector('#consultation'),
       button = document.querySelectorAll('.btn'),
       btnOrder = document.querySelectorAll('.button_mini'),
       descr = document.querySelectorAll('.catalog-item__subtitle'),
-      // descrOrderModal = document.querySelectorAll('.modal_descr_order'),
+      descrOrderModal = document.querySelector('.modal_descr_order'),
       overlay = document.querySelector('.overlay');
   
 
@@ -239,19 +239,20 @@ const consultation = document.querySelector('#consultation'),
         });       
 
       });
-      console.log(descr);
+     
+
       Close(consultation);
 
       function OrderClick(modal) {
          
         btnOrder.forEach((btn,i) => {
 
-          btn.addEventListener('click', (e) => {
-             
-            OpenModal(modal);
-         
-            // descrOrderModal[i].innerHTML = descr[i].innerHTML;
-            // console.log(descr[i]);
+          btn.addEventListener('click', (e) => {         
+
+            descrOrderModal.textContent = descr[i].textContent;        
+            
+            OpenModal(modal);        
+            
           }); 
          
         });
@@ -273,6 +274,21 @@ const consultation = document.querySelector('#consultation'),
           postData(item);
       });
 
+      const posts = async (url, data) => {
+        const res = await fetch(url, {
+            method:'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body:data
+        });
+        if (!res.ok) {
+          throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+      }
+        return await res.json();        
+    };
+
+
       function postData(form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
@@ -282,17 +298,7 @@ const consultation = document.querySelector('#consultation'),
           const json = JSON.stringify(Object.fromEntries(formData.entries()));
                 
           
-          const posts = async (url, data) => {
-            const res = await fetch(url, {
-                method:"POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body:data
-            });
-            return await res.json();        
-        };
-
+          
           posts('mailer/smart.php', json)
           .then (data => {
             console.log(data);
