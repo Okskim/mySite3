@@ -7,6 +7,9 @@
     color: #ffffff;
     border-radius: 5px;
     border: none;
+    &:hover {
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    }
     &_main {
         margin-top: 67px;
         width: 303px;

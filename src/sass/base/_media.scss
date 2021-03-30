@@ -239,6 +239,7 @@
         
     }
     .promo {
+        // background: url('../../image/bg.jpg') center (cover 50%) no-repeat;
         min-height: 555px;
         padding: 21px 20px 40px 20px;
         &__wrapper {            
@@ -630,6 +631,38 @@
         }  
         
     }
+    .footer {
+        height: 500px; 
+        &__info {
+            padding: 50px 68px 60px 68px;           
+            width: 380px;
+            height: 230px;            
+        }      
+       
+        &__address {
+            margin-bottom: 30px;            
+            font-size: 15px;
+            line-height: 15px;
+            
+        }
+        &__phone {            
+            font-size: 15px;
+            line-height: 15px;            
+            margin-bottom: 30px;           
+        }
+        
+        &__social-item {
+            width: 40px;
+            height: 40px;           
+            margin: 0 15px;
+            img {
+                height: 18px;
+            }           
+        }  
+    
+    
+    }
+        
 }
 @media (max-width: 575px) {
     .header{            
@@ -803,10 +836,10 @@
         &__content {
             margin-top: 20px;           
             justify-content: center;          
-        }
-        
+        }      
         
     }
+    
 
 
 
