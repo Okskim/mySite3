@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0e3996fc88ee4a424473f55b89bf9b83b5f601ee
 @font-face {
     font-family: 'Museo Sans Cyrl';
     src: local('MuseoSansCyrl-500'),
@@ -22,4 +26,8 @@
         url('../fonts/MuseoSansCyrl-700.woff2') format('woff2'),
         url('../fonts/MuseoSansCyrl-700.woff') format('woff');
     font-weight: 700;
+<<<<<<< HEAD
     font-style: normal;
+=======
+    font-style: normal;
+>>>>>>> 0e3996fc88ee4a424473f55b89bf9b83b5f601ee

@@ -330,9 +330,8 @@ const consultation = document.querySelector('#consultation'),
           CloseModal(thanksModal);
 
         },2000);
-      }
-      
-      
+      } 
 
+      
 
 });
