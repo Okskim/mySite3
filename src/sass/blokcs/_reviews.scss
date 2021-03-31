@@ -1,6 +1,6 @@
 .reviews {
     min-height: 915px;
-    padding: 0 0 0 48px;
+    padding: 0 0 48px 0px;
     &__title {
         font-weight: 700;
         font-size: 30px;
@@ -16,8 +16,7 @@
         align-items: flex-start;
         img {
             width: 169px;
-            height: 169px;
-            
+            height: 169px;            
         }        
     }
     &__item {
@@ -38,11 +37,9 @@
 
     }
     &__descr {
-        font-weight: 300;
+        margin-top: 10px;        
         font-size: 16px;
-        line-height: 24px;
-
-        color: #0D0D0D;
+        line-height: 24px;        
     }
 
 }

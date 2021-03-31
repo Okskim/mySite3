@@ -120,7 +120,7 @@
         
     }
     .catalog {
-        padding: 0 60px 100px 60px;
+        padding: 0 60px 60px 60px;
         &__title {
             font-size: 28px;
             line-height: 28px;       
@@ -203,6 +203,39 @@
             height: 35px;
             font-size: 12px;
         }
+    }
+    .reviews {
+        min-height: 750px;
+       
+        &__title {            
+            font-size: 28px;
+            line-height: 28px;                   
+        }
+        &__blokc {
+            margin-top: 50px;            
+            img {
+                width: 150px;
+                height: 150px;                
+            }        
+        }
+        &__item {
+            width: 620px;
+            margin-left: 55px;
+        }
+        &__name {            
+            font-size: 15px;
+            line-height: 15px;            
+        }
+        &__marathon {            
+            font-size: 12px;
+            line-height: 18px;           
+    
+        }
+        &__descr {           
+            font-size: 14px;
+            line-height: 18px;            
+        }
+    
     }   
 
 }
@@ -227,19 +260,16 @@
         &__phone  {           
             font-size: 16px;          
            
-        }
-        
+        }      
     
         .button {      
             width: 140px;
             height: 28px;           
             font-size: 12px;           
-        }
-       
+        }      
         
     }
-    .promo {
-        // background: url('../../image/bg.jpg') center (cover 50%) no-repeat;
+    .promo {        
         min-height: 555px;
         padding: 21px 20px 40px 20px;
         &__wrapper {            
@@ -371,7 +401,7 @@
         
     }
     .catalog {
-        padding: 0 50px 100px 50px;
+        padding: 0 50px 30px 50px;
         &__title {
             font-size: 20px;
             line-height: 20px;       
@@ -442,7 +472,7 @@
                
             }      
            
-        &__back {            
+        &__back {  
                            
             font-size: 11px;                   
         }  
@@ -453,7 +483,42 @@
             height: 28px;
             font-size: 11px;
         }
+    }
+    .reviews {
+        min-height: 580px;
+        padding: 0 40px 30px 40px;
+       
+        &__title {            
+            font-size: 20px;
+            line-height: 20px;                   
+        }
+        &__blokc {
+            margin-top: 25px;            
+            img {
+                width: 100px;
+                height: 100px;                
+            }        
+        }
+        &__item {
+            width: 500px;
+            margin-left: 20px;
+        }
+        &__name {            
+            font-size: 13px;
+            line-height: 13px;            
+        }
+        &__marathon {            
+            font-size: 11px;
+            line-height: 12px;           
+    
+        }
+        &__descr {           
+            font-size: 11px;
+            line-height: 15px;            
+        }
+    
     }   
+   
 } 
 @media (max-width: 767px) {
     .header{            
@@ -594,8 +659,9 @@
         }    
         
     }
-    .catalog {       
-        &__tabs {
+    .catalog { 
+        padding-bottom: 20px;
+        &__tabs {            
             margin-top: 20px;           
         }
         &__tab {
@@ -628,9 +694,44 @@
                 }
                
             }                   
-        }  
+        }
+    }   
+        .reviews {
+            min-height: 580px;
+            padding: 0 40px 20px 40px;
+           
+            &__title {            
+                font-size: 18px;
+                line-height: 18px;                   
+            }
+            &__blokc {
+                margin-top: 20px;            
+                img {
+                    width: 80px;
+                    height: 80px;                
+                }        
+            }
+            &__item {
+                width: 450px;
+                margin-left: 18px;
+            }
+            &__name {            
+                font-size: 12px;
+                line-height: 12px;            
+            }
+            &__marathon {            
+                font-size: 11px;
+                line-height: 13px;           
         
-    }
+            }
+            &__descr {           
+                font-size: 11px;
+                line-height: 14px;            
+            }
+        
+        } 
+        
+    
     .footer {
         height: 500px; 
         &__info {
@@ -695,6 +796,7 @@
     .promo {
         min-height: 350px;
         padding: 15px 15px 20px 15px;
+        background: url('../../image/fonMobile.jpg') center (center/cover) no-repeat;
         &__wrapper {            
             margin-top: 50px;
         }
@@ -839,6 +941,37 @@
         }      
         
     }
+    .reviews {
+        min-height: 500px;
+        padding: 0 40px 20px 40px;
+       
+        &__title {            
+            font-size: 18px;
+            line-height: 18px;                   
+        }
+        &__blokc {
+            margin-top: 18px;            
+            img {
+                width: 70px;
+                height: 70px;                
+            }        
+        }
+        &__item {
+            width: 450px;
+            margin-left: 12px;
+        }
+        &__marathon {            
+            font-size: 10px;
+            line-height: 12px;   
+    
+        } 
+       
+        &__descr {           
+            font-size: 10px;
+            line-height: 12px;            
+        }
+    
+    } 
     
 
 
