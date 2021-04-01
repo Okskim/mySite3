@@ -20,15 +20,20 @@
          
         img {
             display: block;
-            margin: 0 auto;
-           
+            margin: 0 auto;         
             
         }
         span {
             color: red;
         }
-       
+        &_animated {
+            animation: heartbeat 1s ease infinite;           
+            &:hover {
+                animation-play-state: paused;
+            }       
+        }       
     }
+    
     &__subtitle {
         margin-top: 35px;
         font-weight: 700;
