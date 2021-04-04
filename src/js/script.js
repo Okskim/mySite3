@@ -276,7 +276,7 @@ const consultation = document.querySelector('#consultation'),
 
       const posts = async (url, data) => {
         const res = await fetch(url, {
-            method:"POST",
+            method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
@@ -300,13 +300,18 @@ const consultation = document.querySelector('#consultation'),
           
           
           posts('mailer/smart.php', json)
-          .then(data => {
-            console.log(data);
-            messageModal(message.success);
-          }).catch(() => {            
+          .then (data => { 
+              if(data.status >= 400) {
+                messageModal(message.failure);
+              }else { 
+                console.log(data);
+                messageModal(message.success);
+              }           
+          })
+          .catch(() => {            
             messageModal(message.failure);
-
-          }).finally(() => {
+          })
+          .finally(() => {
             form.reset();
           });
         });
@@ -375,11 +380,6 @@ const consultation = document.querySelector('#consultation'),
                 }
             }
         });
-    });
-
-
-      
-
-      
+    });     
 
 });
