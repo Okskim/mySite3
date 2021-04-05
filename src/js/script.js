@@ -1,14 +1,13 @@
 window.addEventListener('DOMContentLoaded',() => {
-//sliders
 
+//sliders
 const slides = document.querySelectorAll('.sliders__slide'),
       prev = document.querySelector('.sliders__prev'),
       next = document.querySelector('.sliders__next'),
       slideWrapper = document.querySelector('.sliders__wrapper'),
       slideField = document.querySelector ('.sliders__inner'),
-      width = window.getComputedStyle(slideWrapper).width;     
+      width = window.getComputedStyle(slideWrapper).width;
       
-
       
       let offset = 0;
       let slideIndex = 1;
@@ -128,64 +127,62 @@ const slides = document.querySelectorAll('.sliders__slide'),
    
 
 
-      //tabs
-
+    //tabs
       const tabs = document.querySelectorAll('.catalog__tab'),
-            tabsContent = document.querySelectorAll('.catalog__content'),
-            tabsParent = document.querySelector('.catalog__tabs'),
-            catalogItem = document.querySelectorAll('.catalog-item__content'),
-            catalogList = document.querySelectorAll('.catalog-item__list'),
-            linkItem = document.querySelectorAll('.catalog-item__link'),
-            linkList = document.querySelectorAll('.catalog-item__back');
+      tabsContent = document.querySelectorAll('.catalog__content'),
+      tabsParent = document.querySelector('.catalog__tabs'),
+      catalogItem = document.querySelectorAll('.catalog-item__content'),
+      catalogList = document.querySelectorAll('.catalog-item__list'),
+      linkItem = document.querySelectorAll('.catalog-item__link'),
+      linkList = document.querySelectorAll('.catalog-item__back');
 
 
-            function hideTabContent () {
-                tabsContent.forEach(item => {
-                item.classList.remove('catalog__content_active');
-              });           
+      function hideTabContent () {
+          tabsContent.forEach(item => {
+          item.classList.remove('catalog__content_active');
+        });           
 
-              tabs.forEach(item => {
-                item.classList.remove('catalog__tab_active');
-              });
-           }  
+        tabs.forEach(item => {
+          item.classList.remove('catalog__tab_active');
+        });
+     }  
 
-            function showTabContent(i=0) {
-              tabsContent[i].classList.add('catalog__content_active');              
-              tabs[i].classList.add('catalog__tab_active');
+      function showTabContent(i=0) {
+        tabsContent[i].classList.add('catalog__content_active');              
+        tabs[i].classList.add('catalog__tab_active');
+      }
+
+      hideTabContent();
+      showTabContent();
+
+      tabsParent.addEventListener('click', (e) => {             
+        const target = e.target;
+        console.log(target);
+        if (target && target.closest('.catalog__tab')) {
+            console.log('2click');
+            tabs.forEach((item, i) => {
+                if (target == item || target.parentElement == item ) {  
+                    hideTabContent();
+                    showTabContent(i);
             }
+          });
+        }
+      });
 
-            hideTabContent();
-            showTabContent();
+      function toggleSlide(item) {
+        item.forEach ((items,i) => {
+          items.addEventListener('click', (e) => {
+             e.preventDefault();
+             catalogItem[i].classList.toggle("catalog-item__content_active");
+             catalogList[i].classList.toggle("catalog-item__list_active");
 
-            tabsParent.addEventListener('click', (e) => {             
-              const target = e.target;
-              console.log(target);
-              if (target && target.closest('.catalog__tab')) {
-                  console.log('2click');
-                  tabs.forEach((item, i) => {
-                      if (target == item || target.parentElement == item ) {  
-                          hideTabContent();
-                          showTabContent(i);
-                  }
-                });
-              }
-            });
-
-            function toggleSlide(item) {
-              item.forEach ((items,i) => {
-                items.addEventListener('click', (e) => {
-                   e.preventDefault();
-                   catalogItem[i].classList.toggle("catalog-item__content_active");
-                   catalogList[i].classList.toggle("catalog-item__list_active");
-
-                });
-              });
-            }
+          });
+        });
+      }
 
 
-              toggleSlide(linkItem);
-              toggleSlide(linkList);  
-              
+        toggleSlide(linkItem);
+        toggleSlide(linkList);  
              
 
    
@@ -203,7 +200,7 @@ const consultation = document.querySelector('#consultation'),
 
       function OpenModal(modal) {
         overlay.style.display = 'block';
-        modal.style.display = 'block';       
+        modal.style.display = 'block'; 
 
       }
 
@@ -227,17 +224,16 @@ const consultation = document.querySelector('#consultation'),
             const target = e.target;
             if (target === modal || target.matches('.modal_close')) {
               CloseModal(modal);
-            }       
-           
+            }           
           }); 
            CloseEsc(modal);      
       }
 
       button.forEach(btn => {
         btn.addEventListener('click', (e) => {         
-            OpenModal(consultation);     
+            OpenModal(consultation);    
                 
-        });       
+        });  
 
       });
      
@@ -261,14 +257,15 @@ const consultation = document.querySelector('#consultation'),
       OrderClick(order);
       Close(order);
 
-      //forms
 
+      //forms
+      
       const forms = document.querySelectorAll('form'),
             thanksModal = document.querySelector('#thanks');
 
       const message = {
-        success: "Спасибо! Мы скоро с вами свяжемся",
-        failure: "Что-то пошло не так..."
+          success: "Спасибо! Мы скоро с вами свяжемся",
+          failure: "Что-то пошло не так..."
       };
 
       forms.forEach(item => {
@@ -283,15 +280,13 @@ const consultation = document.querySelector('#consultation'),
             },
             body:data
         });
-      //   if (!res.ok) {
-      //     throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-      // }
+     
         return await res.json();        
-    };
+      };
 
 
       function postData(form) {
-        form.addEventListener('submit', (e) => {
+          form.addEventListener('submit', (e) => {
           e.preventDefault();
 
           const formData = new FormData(form);
@@ -299,8 +294,8 @@ const consultation = document.querySelector('#consultation'),
           const json = JSON.stringify(Object.fromEntries(formData.entries()));
                 
           
-          
-          posts('mailer/smart.php', json)
+         //posts('mailer/smart.php', json) ??         
+          posts('https://jsonplaceholder.typicode.com/posts', json)      
           .then (data => { 
               if(data.status >= 400) {
                 messageModal(message.failure);
@@ -308,32 +303,32 @@ const consultation = document.querySelector('#consultation'),
                 console.log(data);
                 messageModal(message.success);
               }           
-          })
-          .catch(() => {            
-            messageModal(message.failure);
-          })
-          .finally(() => {
-            form.reset();
-          });
+            })
+            .catch(() => {            
+                messageModal(message.failure);
+            })
+            .finally(() => {
+                form.reset();
+            });
         });
       }
 
       function messageModal (message) {
-        CloseModal(consultation);
-        CloseModal(order);
+          CloseModal(consultation);
+          CloseModal(order);
 
         OpenModal(thanksModal);
 
         thanksModal.innerHTML =`
-        <div class="modal_close">&times;</div>
-        <div class="modal_subtitle"> </div>
-        <div class="modal_descr">${message}</div>    
+          <div class="modal_close">&times;</div>
+          <div class="modal_subtitle"> </div>
+          <div class="modal_descr">${message}</div>    
         `;
 
         Close(thanksModal);
         
         setTimeout(() => {
-          CloseModal(thanksModal);
+            CloseModal(thanksModal);
 
         },2000);
       } 
@@ -382,5 +377,9 @@ const consultation = document.querySelector('#consultation'),
             }
         });
     });     
+
+
+ 
+     
 
 });
